@@ -1,9 +1,15 @@
 import React from 'react';
 
-export default function Instagram() {
+interface InstagramProps {
+  color?: string;
+}
+
+const Instagram: React.FC<InstagramProps> = ({ color }) => {
   return (
     <svg
-      className="w-6 h-6 text-white hover:underline hover:text-minion-yellow cursor-pointer"
+      className={`w-6 h-6 hover:underline hover:text-minion-yellow cursor-pointer ${
+        color ? color : 'text-white'
+      }`}
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -18,4 +24,6 @@ export default function Instagram() {
       />
     </svg>
   );
-}
+};
+
+export default Instagram;

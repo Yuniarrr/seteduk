@@ -16,6 +16,7 @@ export default {
       "eerie-black": "#111827",
       "shadow-blue": "#8080AD",
       "polished-pine": "#71AA8B",
+      "maximum-yellow-red": "#EDBE52"
     },
   },
   // eslint-disable-next-line no-undef
