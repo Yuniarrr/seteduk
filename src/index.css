@@ -2,10 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  @layer components {
-    .basic-text {
-      @apply text-independence text-base py-4;
-    }
+@layer components {
+  .basic-text {
+    @apply text-independence my-4;
   }
 }

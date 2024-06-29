@@ -1,22 +1,78 @@
-import React from 'react';
-import Naspad from '../../public/images/naspad.jpeg';
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Play from '../components/logo/Play';
-import Kopi from '../../public/images/kopi.jpeg';
+import Banner from '../../public/images/banner.png';
+import SetedukBundle from '../../public/images/seteduk-bundle.png';
+import Butel1 from '../../public/images/butel-1.png';
+import Butel2 from '../../public/images/butel-2.png';
+import NasiTelang from '../../public/images/nasi-telang.png';
+import Sachet from '../../public/images/sachet.png';
+import Pouch from '../../public/images/pouch.png';
 
 const Beranda = () => {
-  const items = Array.from({ length: 2 }, (_, index) => index);
   const lists = Array.from({ length: 15 }, (_, index) => index);
+  const products = [
+    { img: Sachet, name: 'Sachet SeTeDuk', weight: 35 },
+    { img: Pouch, name: 'Pouch SeTeDuk', weight: 175 },
+  ];
 
   return (
     <div className="w-full">
+      {/* seteduk */}
+      <div>
+        <img
+          src={Banner}
+          alt="banner"
+          className="w-full object-cover object-center absolute -z-10 2xl:-mt-10 h-40 md:h-auto"
+        />
+        <div className="flex flex-col md:flex-row items-center md:items-start md:pt-8 justify-center md:justify-start">
+          <div className="flex flex-col items-start justify-start xl:gap-y-56 xl:ml-10 xl:w-1/3 md:gap-y-32 order-last md:order-none gap-y-4 xl:pt-10 mx-8 md:mx-0">
+            <div className="xl:ml-8 md:pl-10">
+              <p className="lg:text-lg md:text-base md:text-white text-independence text-sm">
+                #seteduk
+              </p>
+              <p className="lg:text-lg md:text-base md:text-white text-independence text-sm lg:w-3/4 xl:w-auto">
+                Bumbu instan nasi uduk bunga telang pertama di Indonesia
+              </p>
+            </div>
+            {/* <div> */}
+            <ul className="flex flex-col flex-wrap gap-x-2 gap-y-2 xl:gap-y-3 md:pl-10">
+              <li className="bg-bright-gray text-independence text-sm md:text-base px-3 rounded-xl w-fit">
+                Selengkapnya Tentang SeTeDuk
+              </li>
+              <li className="bg-bright-gray text-independence text-sm md:text-base px-3 rounded-xl w-fit">
+                Cara Penyajian SeTeDuk
+              </li>
+            </ul>
+            {/* </div> */}
+          </div>
+          <div>
+            <img
+              src={Butel1}
+              alt=""
+              className="hidden xl:block absolute xl:mt-[14%] 2xl:mt-[13%] 2xl:-ml-[7%] xl:-ml-[8%] animate-bounce"
+            />
+            <img
+              src={Butel2}
+              alt=""
+              className="hidden xl:block absolute 2xl:ml-[30%] xl:ml-[38%] animate-bounce"
+            />
+            <img
+              src={SetedukBundle}
+              alt="Bundle Seteduk"
+              className="h-64 mt-4 md:mt-0 md:h-auto"
+            />
+          </div>
+        </div>
+      </div>
+
       {/* about seteduk */}
       <div className="flex flex-wrap justify-around items-center flex-col m-8 xl:mx-20 xl:my-20 md:flex-row gap-y-8">
         {/* left content */}
         <div className="md:w-1/2 justify-center">
           <div className="md:mr-5 lg:mr-10 flex items-center justify-center">
-            <div className="flex flex-col gap-y-4 bg-american-blue rounded-xl p-3 md:p-5 lg:py-7 items-center justify-center w-2/3 md:w-11/12 lg:w-4/5 xl:w-2/3">
+            <div className="flex flex-col gap-y-4 bg-american-blue rounded-xl p-3 md:p-5 lg:py-7 items-center justify-center w-full md:w-11/12 lg:w-4/5 xl:w-2/3">
               <img
-                src={Naspad}
+                src={NasiTelang}
                 className="rounded-lg"
               />
               <div className="rounded-full bg-white h-10 w-10 m-auto flex items-center justify-center">
@@ -62,7 +118,7 @@ const Beranda = () => {
             can follow me on GitHub.
           </p>
           <p className="basic-text">Finally, some quick bits about me.</p>
-          <ul className="mx-5 grid grid-cols-2">
+          <ul className="mx-5 md:grid md:grid-cols-2">
             <li className="text-independence list-disc">
               Computer Engineering
             </li>
@@ -90,17 +146,19 @@ const Beranda = () => {
         {/* </h2> */}
 
         {/* list produk */}
-        <div className="flex flex-col md:flex-row flex-wrap items-center justify-evenly w-full gap-x-10 xl:gap-x-20 gap-y-8">
-          {items.map((index) => (
+        <div className="flex flex-col md:flex-row flex-wrap md:items-stretch items-center justify-evenly w-full gap-x-10 xl:gap-x-20 gap-y-8">
+          {products.map((product) => (
             <div className="bg-bright-gray p-5 rounded-xl flex flex-col gap-y-3 items-center justify-center md:w-1/3 lg:w-1/4">
               <img
                 className="rounded-xl"
-                src={Kopi}
+                src={product.img}
                 alt=""
               />
               <div className="flex items-center justify-center flex-col">
-                <h5 className="text-eerie-black font-bold text-lg">Sachet</h5>
-                <p className="text-independence text-sm">175g</p>
+                <h5 className="text-eerie-black font-bold text-lg">
+                  {product.name}
+                </h5>
+                <p className="text-independence text-sm">{product.weight} g</p>
               </div>
             </div>
           ))}
@@ -109,12 +167,15 @@ const Beranda = () => {
 
       {/* detail produk */}
       <div className="flex flex-wrap justify-around items-center flex-col m-8 xl:mx-20 xl:my-16 gap-y-8">
-        {items.map((index) => (
-          <div className="shadow-md rounded-xl flex flex-wrap flex-col md:flex-row justify-around items-center p-7 gap-y-7">
+        {products.map((product, index) => (
+          <div className="shadow-md rounded-xl flex flex-wrap flex-col md:flex-row justify-around items-center p-7 gap-y-7 w-full">
             {/* tulisan */}
-            <div className="md:w-1/2">
+            <div
+              className={`md:w-1/2 ${
+                index % 2 === 0 ? 'order-none' : 'md:order-last'
+              }`}>
               <h3 className="text-eerie-black font-bold text-lg">
-                Sachet SeTeDuk
+                {product.name}
               </h3>
               <p className="basic-text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -123,7 +184,7 @@ const Beranda = () => {
                 curae.
               </p>
               <ul className="flex flex-row flex-wrap gap-x-2 gap-y-3">
-                {lists.map((index) => (
+                {lists.map((_) => (
                   <li className="bg-bright-gray text-independence px-3 rounded-lg">
                     React
                   </li>
@@ -149,7 +210,7 @@ const Beranda = () => {
             {/* gambar */}
             <div className="md:w-1/2 flex items-center justify-center">
               <img
-                src={Kopi}
+                src={product.img}
                 alt=""
               />
             </div>
@@ -164,7 +225,7 @@ const Beranda = () => {
         </h1>
         <img
           className="rounded-xl w-2/3 md:1/2 lg:w-2/5 xl:w-2/6"
-          src={Naspad}
+          src={NasiTelang}
           alt=""
         />
       </div>

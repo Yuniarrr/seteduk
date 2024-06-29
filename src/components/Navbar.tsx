@@ -1,18 +1,20 @@
-import React from 'react';
 import Instagram from './logo/Instagram';
+import Seteduk from '../../public/images/seteduk.png';
+import Shopee from './logo/Shopee';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <>
+    <div className="">
       <nav className="bg-cadmium-green border-gray-200 dark:bg-gray-900 w-full">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a
             href="#"
             className="flex items-center space-x-3 rtl:space-x-reverse">
             <img
-              src="https://flowbite.com/docs/images/logo.svg"
+              src={Seteduk}
               className="h-8"
-              alt="Flowbite Logo"
+              alt="Seteduk Logo"
             />
             <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
               SeTeDuk
@@ -21,7 +23,7 @@ const Navbar = () => {
           <button
             data-collapse-toggle="navbar-default"
             type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-minion-yellow focus:outline-none"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden focus:outline-none"
             aria-controls="navbar-default"
             aria-expanded="false">
             <span className="sr-only">Open main menu</span>
@@ -45,26 +47,46 @@ const Navbar = () => {
             id="navbar-default">
             <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <li>
-                <a
-                  href="#"
-                  className="block py-2 px-3 text-minion-yellow rounded md:bg-transparent md:p-0 hover:underline hover:text-minion-yellow"
-                  aria-current="page">
+                {/* <Link
+                  to={'/'}
+                  className="block py-2 px-3 text-white rounded md:bg-transparent md:p-0 hover:underline hover:text-minion-yellow">
                   Beranda
-                </a>
+                </Link> */}
+                <NavLink
+                  to="/"
+                  className={({ isActive }) =>
+                    isActive
+                      ? 'block py-2 px-3 text-minion-yellow rounded md:bg-transparent md:p-0 hover:underline'
+                      : 'block py-2 px-3 text-white rounded md:bg-transparent md:p-0 hover:underline hover:text-minion-yellow'
+                  }>
+                  Beranda
+                </NavLink>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="block py-2 px-3 text-white rounded md:bg-transparent md:p-0 hover:underline hover:text-minion-yellow">
-                  About
-                </a>
+                <NavLink
+                  to="/profile"
+                  className={({ isActive }) =>
+                    isActive
+                      ? 'block py-2 px-3 text-minion-yellow rounded md:bg-transparent md:p-0 hover:underline'
+                      : 'block py-2 px-3 text-white rounded md:bg-transparent md:p-0 hover:underline hover:text-minion-yellow'
+                  }>
+                  Profil
+                </NavLink>
               </li>
-              <li className="border-l-2"></li>
+              <li className="border-l-2" />
               <li>
                 <a
                   href="https://www.instagram.com/seteduk"
                   target="__blank">
                   <Instagram />
+                </a>
+              </li>
+              <li className="border-l-2" />
+              <li>
+                <a
+                  href="https://www.instagram.com/seteduk"
+                  target="__blank">
+                  <Shopee />
                 </a>
               </li>
             </ul>
@@ -73,15 +95,31 @@ const Navbar = () => {
       </nav>
       <div className="block md:hidden w-full bg-cadmium-green px-5">
         <ul className="flex gap-y-2 flex-col py-2">
-          <li className="text-minion-yellow hover:text-minion-yellow text-base">
-            Beranda
+          <li>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive
+                  ? 'text-minion-yellow text-base'
+                  : 'text-white hover:text-minion-yellow text-base'
+              }>
+              Beranda
+            </NavLink>
           </li>
-          <li className="text-white hover:text-minion-yellow text-base">
-            Profil
+          <li>
+            <NavLink
+              to="/profile"
+              className={({ isActive }) =>
+                isActive
+                  ? 'text-minion-yellow text-base'
+                  : 'text-white hover:text-minion-yellow text-base'
+              }>
+              Profil
+            </NavLink>
           </li>
         </ul>
       </div>
-    </>
+    </div>
   );
 };
 

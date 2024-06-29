@@ -1,25 +1,49 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
+  darkMode: ["class"],
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
     "./node_modules/flowbite/**/*.js"
   ],
+  prefix: "",
   theme: {
-    extend: {},
-    colors: {
-      "cadmium-green": "#056934",
-      "american-blue": "#38387E",
-      "minion-yellow": "#EEDD53",
-      "bright-gray": "#E5E7EB",
-      "independence": "#4B5563",
-      "eerie-black": "#111827",
-      "shadow-blue": "#8080AD",
-      "polished-pine": "#71AA8B",
-      "maximum-yellow-red": "#EDBE52"
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
     },
+    extend: {
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
+    },
+    colors: {
+      'cadmium-green': '#056934',
+      'american-blue': '#38387E',
+      'maize': '#F9C13F',
+      'bright-gray': '#E5E7EB',
+      'independence': '#4B5563',
+      'maximum-yellow-red': '#ECBD51',
+      'eerie-black': '#1B1B1B',
+      'minion-yellow': '#FFD55E',
+      'white': '#FFFFFF',
+    }
   },
-  // eslint-disable-next-line no-undef
-  plugins: [require("flowbite/plugin")],
+  plugins: [require("tailwindcss-animate"), require('flowbite/plugin')],
 }
-
