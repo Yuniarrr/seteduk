@@ -6,6 +6,13 @@ import React from 'react';
 
 const Navbar = () => {
   const [isOpenNavbar, setIsOpenNavbar] = React.useState(false);
+  const handleScrollToTop = () => {
+    console.log('masuksiniii');
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   return (
     <div className="fixed w-full z-10 top-0">
@@ -52,13 +59,9 @@ const Navbar = () => {
             id="navbar-default">
             <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <li>
-                {/* <Link
-                  to={'/'}
-                  className="block py-2 px-3 text-white rounded md:bg-transparent md:p-0 hover:underline hover:text-minion-yellow">
-                  Beranda
-                </Link> */}
                 <NavLink
                   to="/"
+                  onClick={handleScrollToTop}
                   className={({ isActive }) =>
                     isActive
                       ? 'block py-2 px-3 text-minion-yellow rounded md:bg-transparent md:p-0 hover:underline'
@@ -70,6 +73,7 @@ const Navbar = () => {
               <li>
                 <NavLink
                   to="/profile"
+                  onClick={handleScrollToTop}
                   className={({ isActive }) =>
                     isActive
                       ? 'block py-2 px-3 text-minion-yellow rounded md:bg-transparent md:p-0 hover:underline'
@@ -105,7 +109,10 @@ const Navbar = () => {
           <div className="flex gap-y-2 flex-col py-2 w-full">
             <NavLink
               to="/"
-              onClick={() => setIsOpenNavbar(!isOpenNavbar)}
+              onClick={() => {
+                setIsOpenNavbar(!isOpenNavbar);
+                handleScrollToTop();
+              }}
               className={({ isActive }) =>
                 isActive
                   ? 'text-minion-yellow text-base'
@@ -115,7 +122,10 @@ const Navbar = () => {
             </NavLink>
             <NavLink
               to="/profile"
-              onClick={() => setIsOpenNavbar(!isOpenNavbar)}
+              onClick={() => {
+                setIsOpenNavbar(!isOpenNavbar);
+                handleScrollToTop();
+              }}
               className={({ isActive }) =>
                 isActive
                   ? 'text-minion-yellow text-base'
