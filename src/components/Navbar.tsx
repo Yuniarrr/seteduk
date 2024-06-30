@@ -2,10 +2,13 @@ import Instagram from './logo/Instagram';
 import Seteduk from '../../public/images/seteduk.png';
 import Shopee from './logo/Shopee';
 import { NavLink } from 'react-router-dom';
+import React from 'react';
 
 const Navbar = () => {
+  const [isOpenNavbar, setIsOpenNavbar] = React.useState(false);
+
   return (
-    <div className="">
+    <div className="fixed w-full z-10 top-0">
       <nav className="bg-cadmium-green border-gray-200 dark:bg-gray-900 w-full">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a
@@ -24,7 +27,9 @@ const Navbar = () => {
             data-collapse-toggle="navbar-default"
             type="button"
             className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden focus:outline-none"
+            onClick={() => setIsOpenNavbar(!isOpenNavbar)}
             aria-controls="navbar-default"
+            data-collapse-target="collapse-1"
             aria-expanded="false">
             <span className="sr-only">Open main menu</span>
             <svg
@@ -93,32 +98,36 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      <div className="block md:hidden w-full bg-cadmium-green px-5">
-        <ul className="flex gap-y-2 flex-col py-2">
-          <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                isActive
-                  ? 'text-minion-yellow text-base'
-                  : 'text-white hover:text-minion-yellow text-base'
-              }>
-              Beranda
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/profile"
-              className={({ isActive }) =>
-                isActive
-                  ? 'text-minion-yellow text-base'
-                  : 'text-white hover:text-minion-yellow text-base'
-              }>
-              Profil
-            </NavLink>
-          </li>
-        </ul>
-      </div>
+      {isOpenNavbar && (
+        <div
+          data-collapse="collapse-1"
+          className={`block md:hidden w-full bg-cadmium-green px-5 overflow-hidden transition-all duration-300 ease-in-out`}>
+          <ul className="flex gap-y-2 flex-col py-2">
+            <li>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive
+                    ? 'text-minion-yellow text-base'
+                    : 'text-white hover:text-minion-yellow text-base'
+                }>
+                Beranda
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/profile"
+                className={({ isActive }) =>
+                  isActive
+                    ? 'text-minion-yellow text-base'
+                    : 'text-white hover:text-minion-yellow text-base'
+                }>
+                Profil
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

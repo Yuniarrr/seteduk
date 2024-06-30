@@ -1,19 +1,15 @@
 import BaseCarousel2 from '../components/BaseCarousel2';
 import Team from '../components/logo/Team';
+import Dosen from '../../public/images/member/dosen.png';
+import Farsya from '../../public/images/member/farsya.png';
+import Keiza from '../../public/images/member/keiza.png';
+import Solagracia from '../../public/images/member/solagracia.png';
+import Syifaul from '../../public/images/member/syifaul.png';
+import NasiTelang from '../../public/images/nasi-telang.png';
 
 const Profile = () => {
-  const members = [
-    '../../public/images/member/dosen.png',
-    '../../public/images/member/farsya.png',
-    '../../public/images/member/keiza.png',
-    '../../public/images/member/solagracia.png',
-    '../../public/images/member/syifaul.png',
-  ];
-  const images = [
-    '../../public/images/nasi-telang.png',
-    '../../public/images/nasi-telang.png',
-    '../../public/images/nasi-telang.png',
-  ];
+  const members = [Dosen, Farsya, Keiza, Solagracia, Syifaul];
+  const images = [NasiTelang, NasiTelang, NasiTelang];
 
   return (
     <div>
