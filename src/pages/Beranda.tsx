@@ -35,7 +35,7 @@ const Beranda = () => {
               </p>
             </div>
             {/* <div> */}
-            <ul className="flex flex-col flex-wrap gap-x-2 gap-y-2 xl:gap-y-3 md:pl-10">
+            <ul className="flex flex-col flex-wrap gap-x-2 gap-y-2 xl:gap-y-3 md:pl-10  items-center md:items-start w-full">
               <li className="bg-bright-gray text-independence text-sm md:text-base px-3 rounded-xl w-fit">
                 Selengkapnya Tentang SeTeDuk
               </li>
@@ -141,14 +141,11 @@ const Beranda = () => {
         <div className="rounded-xl text-eerie-black bg-bright-gray px-4 py-1">
           Produk Kami
         </div>
-        {/* <h2 className="rounded-xl text-eerie-black bg-bright-gray px-4 py-1"> */}
-        {/* Produk Kami */}
-        {/* </h2> */}
 
         {/* list produk */}
         <div className="flex flex-col md:flex-row flex-wrap md:items-stretch items-center justify-evenly w-full gap-x-10 xl:gap-x-20 gap-y-8">
           {products.map((product) => (
-            <div className="bg-bright-gray p-5 rounded-xl flex flex-col gap-y-3 items-center justify-center md:w-1/3 lg:w-1/4">
+            <div className="bg-bright-gray p-5 rounded-xl flex flex-col gap-y-3 items-center justify-center md:w-1/3 lg:w-1/4 xs:px-10 md:mx-0 min-w-80">
               <img
                 className="rounded-xl"
                 src={product.img}

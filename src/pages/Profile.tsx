@@ -12,7 +12,7 @@ const Profile = () => {
   const images = [NasiTelang, NasiTelang, NasiTelang];
 
   return (
-    <div>
+    <div className="mt-24">
       <div className="flex flex-wrap justify-evenly items-center flex-col m-8 xl:mx-20 xl:my-20 md:flex-row gap-y-8">
         <div className="flex flex-col w-full md:gap-y-5 xl:w-1/4 md:w-1/3 accordion-up">
           <h2 className="font-bold text-2xl xl:text-5xl">

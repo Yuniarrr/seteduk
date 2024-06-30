@@ -102,30 +102,28 @@ const Navbar = () => {
         <div
           data-collapse="collapse-1"
           className={`block md:hidden w-full bg-cadmium-green px-5 overflow-hidden transition-all duration-300 ease-in-out`}>
-          <ul className="flex gap-y-2 flex-col py-2">
-            <li>
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  isActive
-                    ? 'text-minion-yellow text-base'
-                    : 'text-white hover:text-minion-yellow text-base'
-                }>
-                Beranda
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/profile"
-                className={({ isActive }) =>
-                  isActive
-                    ? 'text-minion-yellow text-base'
-                    : 'text-white hover:text-minion-yellow text-base'
-                }>
-                Profil
-              </NavLink>
-            </li>
-          </ul>
+          <div className="flex gap-y-2 flex-col py-2 w-full">
+            <NavLink
+              to="/"
+              onClick={() => setIsOpenNavbar(!isOpenNavbar)}
+              className={({ isActive }) =>
+                isActive
+                  ? 'text-minion-yellow text-base'
+                  : 'text-white hover:text-minion-yellow text-base'
+              }>
+              Beranda
+            </NavLink>
+            <NavLink
+              to="/profile"
+              onClick={() => setIsOpenNavbar(!isOpenNavbar)}
+              className={({ isActive }) =>
+                isActive
+                  ? 'text-minion-yellow text-base'
+                  : 'text-white hover:text-minion-yellow text-base'
+              }>
+              Profil
+            </NavLink>
+          </div>
         </div>
       )}
     </div>
