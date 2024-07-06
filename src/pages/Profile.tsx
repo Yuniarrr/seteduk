@@ -5,11 +5,16 @@ import Farsya from '../../public/images/member/farsya.png';
 import Keiza from '../../public/images/member/keiza.png';
 import Solagracia from '../../public/images/member/solagracia.png';
 import Syifaul from '../../public/images/member/syifaul.png';
-import NasiTelang from '../../public/images/nasi-telang.png';
+// import NasiTelang from '../../public/images/nasi-telang.png';
+import Img1 from '../../public/images/seteduk/img-1.jpg';
+import Img2 from '../../public/images/seteduk/img-2.jpg';
+import Img3 from '../../public/images/seteduk/img-3.jpg';
+import Img4 from '../../public/images/seteduk/img-4.jpg';
+import Img5 from '../../public/images/seteduk/img-5.jpg';
 
 const Profile = () => {
   const members = [Dosen, Farsya, Keiza, Solagracia, Syifaul];
-  const images = [NasiTelang, NasiTelang, NasiTelang];
+  const images = [Img1, Img2, Img3, Img4, Img5];
 
   return (
     <div className="mt-24">
@@ -48,18 +53,19 @@ const Profile = () => {
             />
           </div>
           <div className="flex flex-col items-start md:px-8 md:w-1/2 w-full justify-center gap-y-3">
-            <h1 className="text-independence font-3xl font-semibold">PKM-K</h1>
+            <h1 className="text-eerie-black text-2xl font-semibold">PKM-K</h1>
             <p className="text-independence">
-              Produk SeTeDuk merupakan produk bumbu instan nasi uduk bunga
-              telang pertama di Indonesia. Produk SeTeDuk diproduksi tanpa bahan
-              pengawet, sehingga aman dikonsumsi bagi semua kalangan umur hingga
-              penderita diabetes yang ingin mengonsumsi nasi dengan kadar
-              glukosa yang lebih rendah.
+              Program Kreativitas Mahasiswa Kewirausahaan (PKM-K) merupakan
+              program kreativitas mahasiswa yang berfokus dalam menciptakan
+              aktivitas usaha. Dalam PKM-K, tim mahasiswa berlatih membuat
+              kreativitas produk usaha yang dibutuhkan masyarakat (pasar).
             </p>
             <p className="text-independence">
-              Finally, some quick bits about me.
+              Kelompok kami membuat produk SeTeDuk, Sego Telang Uduk. SeTeDuk
+              merupakan bumbu bubuk nasi uduk bunga telang instan pertama di
+              Indonesia.
             </p>
-            <ul className="mx-5 lg:grid lg:grid-cols-2 w-full">
+            {/* <ul className="mx-5 lg:grid lg:grid-cols-2 w-full">
               <li className="text-independence list-disc">
                 Computer Engineering
               </li>
@@ -74,7 +80,7 @@ const Profile = () => {
             <p className="text-independence">
               One last thing, I'm available for freelance work, so feel free to
               reach out and say hello! I promise I don't bite 😉
-            </p>
+            </p> */}
           </div>
         </div>
       </div>

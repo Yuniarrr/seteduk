@@ -95,7 +95,7 @@ const Navbar = () => {
                 <a
                   href="https://www.instagram.com/seteduk"
                   target="__blank">
-                  <Shopee />
+                  <Shopee color="#ffffff" />
                 </a>
               </li>
             </ul>

@@ -7,12 +7,25 @@ import Butel2 from '../../public/images/butel-2.png';
 import NasiTelang from '../../public/images/nasi-telang.png';
 import Sachet from '../../public/images/sachet.png';
 import Pouch from '../../public/images/pouch.png';
+import Shopee from '@/components/logo/Shopee';
+import CaraMemasak from '../../public/images/seteduk/cara memasak.mp4';
 
 const Beranda = () => {
-  const lists = Array.from({ length: 15 }, (_, index) => index);
   const products = [
-    { img: Sachet, name: 'Sachet SeTeDuk', weight: 35 },
-    { img: Pouch, name: 'Pouch SeTeDuk', weight: 175 },
+    {
+      img: Sachet,
+      name: 'Sachet SeTeDuk',
+      weight: 35,
+      desc: 'Kemasan sachet produk SeTeDuk sangat praktis. Pada kemasan sachet SeTeDuk sudah tersedia bumbu bubuk dan minyak bumbu yang dapat langsung dituang ke dalam nasi putih hangat. ',
+      price: '3.000',
+    },
+    {
+      img: Pouch,
+      name: 'Pouch SeTeDuk',
+      weight: 175,
+      desc: 'Kemasan pouch produk SeTeDuk berisi 4 sachet + bonus 1 sachet produk SeTeDuk. Kemasan pouch ini lebih hemat dan cocok untuk disimpan sebagai stock di rumah.',
+      price: '10.000',
+    },
   ];
 
   return (
@@ -98,19 +111,18 @@ const Beranda = () => {
             yang lebih rendah.
           </p>
           <p className="basic-text">
-            I began my journey as a web developer in 2015, and since then, I've
-            continued to grow and evolve as a developer, taking on new
-            challenges and learning the latest technologies along the way. Now,
-            in my early thirties, 7 years after starting my web development
-            journey, I'm building cutting-edge web applications using modern
-            technologies such as Next.js, TypeScript, Nestjs, Tailwindcss,
-            Supabase and much more.
+            Produk SeTeDuk sangat praktis dan mudah dalam penyajiannya. SeTeDuk
+            dapat disajikan dengan mencampur langsung bumbu bubuk dan minyak
+            bumbu ke dalam nasi putih hangat yang telah matang, kemudian diaduk
+            rata, dan nasi uduk bunga telang sudah siap untuk disantap. Nasi
+            uduk bunga telang SeTeDuk dapat dihidangkan dengan berbagai lauk
+            pauk dan sayuran pendamping.
           </p>
           <p className="basic-text">
-            I am very much a progressive thinker and enjoy working on products
-            end to end, from ideation all the way to development.
+            Produk SeTeDuk tersedia dalam 2 varian kemasan, yaitu kemasan sachet
+            dan kemasan pouch.
           </p>
-          <p className="basic-text">
+          {/* <p className="basic-text">
             When I'm not in full-on developer mode, you can find me hovering
             around on twitter or on indie hacker, witnessing the journey of
             early startups or enjoying some free time. You can follow me on
@@ -131,7 +143,7 @@ const Beranda = () => {
           <p className="basic-text">
             One last thing, I'm available for freelance work, so feel free to
             reach out and say hello! I promise I don't bite 😉
-          </p>
+          </p> */}
         </div>
       </div>
 
@@ -174,35 +186,17 @@ const Beranda = () => {
               <h3 className="text-eerie-black font-bold text-lg">
                 {product.name}
               </h3>
-              <p className="basic-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Maecenas nec urna ac tellus volutpat viverra. Vestibulum ante
-                ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                curae.
-              </p>
+              <p className="basic-text">{product.desc}</p>
               <ul className="flex flex-row flex-wrap gap-x-2 gap-y-3">
-                {lists.map((_) => (
-                  <li className="bg-bright-gray text-independence px-3 rounded-lg">
-                    React
-                  </li>
-                ))}
+                {/* {lists.map((_) => ( */}
+                <li className="bg-bright-gray text-independence px-3 rounded-lg">
+                  Rp {product.price}
+                </li>
+                {/* ))} */}
               </ul>
-              <svg
-                className="w-6 h-6 text-gray-800 dark:text-white mt-5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24">
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778"
-                />
-              </svg>
+              <div className="my-4 cursor-pointer">
+                <Shopee color="#000000" />
+              </div>
             </div>
             {/* gambar */}
             <div className="md:w-1/2 flex items-center justify-center">
@@ -220,11 +214,18 @@ const Beranda = () => {
         <h1 className="text-white font-xl font-semibold">
           Cara Penyajian SeTeDuk
         </h1>
-        <img
+        {/* <img
           className="rounded-xl w-2/3 md:1/2 lg:w-2/5 xl:w-2/6"
           src={NasiTelang}
           alt=""
-        />
+        /> */}
+        <video
+          className="rounded-xl w-2/3 md:1/2 lg:w-2/5 xl:w-2/6"
+          autoPlay
+          muted
+          loop>
+          <source src={CaraMemasak} />
+        </video>
       </div>
     </div>
   );
