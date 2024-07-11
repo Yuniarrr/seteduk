@@ -3,6 +3,7 @@ import Seteduk from '../../public/images/seteduk.png';
 import Shopee from './logo/Shopee';
 import { NavLink } from 'react-router-dom';
 import React from 'react';
+import Link from './logo/Link';
 
 const Navbar = () => {
   const [isOpenNavbar, setIsOpenNavbar] = React.useState(false);
@@ -82,7 +83,7 @@ const Navbar = () => {
                   Profil
                 </NavLink>
               </li>
-              <li className="border-l-2" />
+              {/* <li className="border-l-2" /> */}
               <li>
                 <a
                   href="https://www.instagram.com/seteduk"
@@ -90,12 +91,19 @@ const Navbar = () => {
                   <Instagram />
                 </a>
               </li>
-              <li className="border-l-2" />
+              {/* <li className="border-l-2" /> */}
               <li>
                 <a
                   href="https://www.instagram.com/seteduk"
                   target="__blank">
-                  <Shopee color="#ffffff" />
+                  <Shopee />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://linktr.ee/seteduk"
+                  target="__blank">
+                  <Link />
                 </a>
               </li>
             </ul>

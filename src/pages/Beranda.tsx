@@ -9,6 +9,10 @@ import Sachet from '../../public/images/sachet.png';
 import Pouch from '../../public/images/pouch.png';
 import Shopee from '@/components/logo/Shopee';
 import CaraMemasak from '../../public/images/seteduk/cara memasak.mp4';
+import Ayu from '../../public/images/ayu.png';
+import Deya from '../../public/images/deya.png';
+import Ita from '../../public/images/ita.png';
+import Mardi from '../../public/images/mardi.png';
 
 const Beranda = () => {
   const products = [
@@ -28,8 +32,34 @@ const Beranda = () => {
     },
   ];
 
+  const testimoni = [
+    {
+      img: Ita,
+      message:
+        'Rasanya enak, gurih, sedikit ada rasa hint jamu tetapi itu yang membuat gurih. Bisa di konsumsi setiap hari karena ada claim menyehatkan',
+      from: 'Ita, Tenaga Kesehatan',
+    },
+    {
+      img: Mardi,
+      message:
+        'Rasanya seperti nasi uduk biasanya, aman di konsumsi sehingga saya merasa aman tidak mengkhawatirkan gula darah naik',
+      from: 'Mardi, Penderita Diabetes',
+    },
+    {
+      img: Deya,
+      message: 'Enak rasanya! Harga terjangkau cocok buat anak kos akhir bulan',
+      from: 'Deya, Mahasiswa',
+    },
+    {
+      img: Ayu,
+      message:
+        'Enak masaknya simpel nggak ribet, bisa buat nasi tumpeng warna biru lebih praktis',
+      from: 'Ayu, Pengusaha catering',
+    },
+  ];
+
   return (
-    <div className="w-full">
+    <div className="w-full -mt-1">
       {/* seteduk */}
       <div>
         <img
@@ -148,29 +178,52 @@ const Beranda = () => {
       </div>
 
       {/* product */}
-      <div className="flex flex-wrap justify-around items-center flex-col py-14 xl:my-10 gap-y-8 bg-cadmium-green">
-        {/* title */}
-        <div className="rounded-xl text-eerie-black bg-bright-gray px-4 py-1">
-          Produk Kami
-        </div>
+      <div className="flex flex-wrap justify-around items-center flex-row py-14 xl:my-10 gap-y-8 bg-cadmium-green w-full">
+        <div className="basis-7/12 w-full flex flex-col items-center justify-center gap-y-5">
+          {/* title */}
+          <div className="rounded-xl text-eerie-black bg-bright-gray px-4 py-1 w-fit">
+            Produk Kami
+          </div>
 
-        {/* list produk */}
-        <div className="flex flex-col md:flex-row flex-wrap md:items-stretch items-center justify-evenly w-full gap-x-10 xl:gap-x-20 gap-y-8">
-          {products.map((product) => (
-            <div className="bg-bright-gray p-5 rounded-xl flex flex-col gap-y-3 items-center justify-center md:w-1/3 lg:w-1/4 xs:px-10 md:mx-0 min-w-80">
-              <img
-                className="rounded-xl"
-                src={product.img}
-                alt=""
-              />
-              <div className="flex items-center justify-center flex-col">
-                <h5 className="text-eerie-black font-bold text-lg">
-                  {product.name}
-                </h5>
-                <p className="text-independence text-sm">{product.weight} g</p>
+          {/* list produk */}
+          <div className="flex flex-row md:flex-row flex-wrap md:items-stretch items-center justify-center w-full xl:gap-x-20 gap-y-8">
+            {products.map((product) => (
+              <div className="bg-bright-gray py-5 rounded-xl flex flex-col gap-y-3 items-center justify-stretch lg:w-1/4 xs:px-10 min-w-72">
+                <img
+                  className="rounded-xl"
+                  src={product.img}
+                  alt=""
+                />
+                <div className="flex items-center justify-center flex-col">
+                  <h5 className="text-eerie-black font-bold text-lg">
+                    {product.name}
+                  </h5>
+                  <p className="text-independence text-sm">
+                    {product.weight} g
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
+        <div className="md:basis-5/12 w-full px-5 flex flex-col gap-y-5">
+          <p className="text-white text-xl font-semibold text-center md:text-start">
+            Apa kata mereka...
+          </p>
+          <div className="flex flex-col gap-y-5 items-center justify-center md:items-start md:justify-start w-full">
+            {testimoni.map((testi) => (
+              <div className="rounded-xl flex flex-row gap-x-5 items-center justify-center">
+                <img
+                  src={testi.img}
+                  alt=""
+                  className="rounded-full w-14 h-14"
+                />
+                <p className="text-white text-start">
+                  "{testi.message}" - {testi.from}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -195,7 +248,7 @@ const Beranda = () => {
                 {/* ))} */}
               </ul>
               <div className="my-4 cursor-pointer">
-                <Shopee color="#000000" />
+                <Shopee />
               </div>
             </div>
             {/* gambar */}

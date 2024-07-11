@@ -1,17 +1,14 @@
-interface Color {
-  color?: string;
-}
-
-export default function Shopee({ color }: Color) {
+export default function Shopee() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       x="0px"
       y="0px"
-      className="w-6 h-6"
+      className="w-5 h-5 hover:underline hover:text-minion-yellow cursor-pointer text-white"
       viewBox="0,0,256,256">
       <g
-        fill={`${color}` || '#ffffff'}
+        // fill={`${color}` || '#ffffff'}
+        fill="currentColor"
         fill-rule="nonzero"
         stroke="none"
         stroke-width="1"
