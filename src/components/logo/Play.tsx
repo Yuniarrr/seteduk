@@ -8,13 +8,10 @@ interface PlayProps {
 const Play: React.FC<PlayProps> = ({ width, height }) => {
   return (
     <svg
-      // className="w-6 h-6 text-minion-yellow"
       className={`text-minion-yellow w-${width} h-${height}`}
+      fill="currentColor"
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      fill="currentColor"
       viewBox="0 0 24 24">
       <path
         fill-rule="evenodd"

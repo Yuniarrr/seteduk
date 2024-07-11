@@ -4,7 +4,6 @@ import Banner from '../../public/images/banner.png';
 import SetedukBundle from '../../public/images/seteduk-bundle.png';
 import Butel1 from '../../public/images/butel-1.png';
 import Butel2 from '../../public/images/butel-2.png';
-import NasiTelang from '../../public/images/nasi-telang.png';
 import Sachet from '../../public/images/sachet.png';
 import Pouch from '../../public/images/pouch.png';
 import Shopee from '@/components/logo/Shopee';
@@ -13,7 +12,11 @@ import Ayu from '../../public/images/ayu.png';
 import Deya from '../../public/images/deya.png';
 import Ita from '../../public/images/ita.png';
 import Mardi from '../../public/images/mardi.png';
+import YouTube, { YouTubePlayer } from 'react-youtube';
+import { useEffect, useState } from 'react';
+import Pause from '@/components/logo/Pause';
 
+let videoElement: YouTubePlayer = null;
 const Beranda = () => {
   const products = [
     {
@@ -57,6 +60,85 @@ const Beranda = () => {
       from: 'Ayu, Pengusaha catering',
     },
   ];
+
+  const [isPaused, setIsPaused] = useState(true);
+
+  const togglePause = () => {
+    setIsPaused(!isPaused);
+  };
+
+  const opts = {
+    height: '200',
+    width: '350',
+  };
+
+  useEffect(() => {
+    if (videoElement) {
+      // get current time
+      const elapsed_seconds = videoElement.target.getCurrentTime();
+
+      // calculations
+      const elapsed_milliseconds = Math.floor(elapsed_seconds * 1000);
+      const ms = elapsed_milliseconds % 1000;
+      const min = Math.floor(elapsed_milliseconds / 60000);
+      const seconds = Math.floor((elapsed_milliseconds - min * 60000) / 1000);
+
+      const formattedCurrentTime =
+        min.toString().padStart(2, '0') +
+        ':' +
+        seconds.toString().padStart(2, '0') +
+        ':' +
+        ms.toString().padStart(3, '0');
+
+      console.log(formattedCurrentTime);
+
+      // Pause and Play video
+      if (isPaused) {
+        videoElement.target.pauseVideo();
+      } else {
+        videoElement.target.playVideo();
+      }
+    }
+  }, [isPaused]);
+
+  //get current time and video status in real time
+  useEffect(() => {
+    const interval = setInterval(async () => {
+      if (videoElement && videoElement.target.getCurrentTime() > 0) {
+        const elapsed_seconds = videoElement.target.getCurrentTime();
+
+        // calculations
+        const elapsed_milliseconds = Math.floor(elapsed_seconds * 1000);
+        const ms = elapsed_milliseconds % 1000;
+        const min = Math.floor(elapsed_milliseconds / 60000);
+        const seconds = Math.floor((elapsed_milliseconds - min * 60000) / 1000);
+
+        const formattedCurrentTime =
+          min.toString().padStart(2, '0') +
+          ':' +
+          seconds.toString().padStart(2, '0') +
+          ':' +
+          ms.toString().padStart(3, '0');
+
+        console.log(formattedCurrentTime);
+
+        // verify video status
+        if (videoElement.target.playerInfo.playerState === 1) {
+          console.log('the video is running');
+        } else if (videoElement.target.playerInfo.playerState === 2) {
+          console.log('the video is paused');
+        }
+      }
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  const _onReady = (event: YouTubePlayer) => {
+    videoElement = event;
+  };
 
   return (
     <div className="w-full -mt-1">
@@ -109,27 +191,37 @@ const Beranda = () => {
       </div>
 
       {/* about seteduk */}
-      <div className="flex flex-wrap justify-around items-center flex-col m-8 xl:mx-20 xl:my-20 md:flex-row gap-y-8">
+      <div className="flex flex-wrap justify-around items-center flex-col md:flex-row mt-10 mb-16">
         {/* left content */}
-        <div className="md:w-1/2 justify-center">
-          <div className="md:mr-5 lg:mr-10 flex items-center justify-center">
-            <div className="flex flex-col gap-y-4 bg-american-blue rounded-xl p-3 md:p-5 lg:py-7 items-center justify-center w-full md:w-11/12 lg:w-4/5 xl:w-2/3">
-              <img
-                src={NasiTelang}
-                className="rounded-lg"
-              />
-              <div className="rounded-full bg-white h-10 w-10 m-auto flex items-center justify-center">
+        <div className="md:basis-1/2 justify-center flex items-center">
+          <div className="flex flex-col gap-y-3 bg-american-blue rounded-xl p-3 md:px-5 md:pt-5 lg:py-7 items-center justify-center w-full lg:w-4/5 xl:w-2/3 min-h-72">
+            {/* <div> */}
+            <YouTube
+              videoId={'RwkelMF9ySs'}
+              opts={opts}
+              onReady={_onReady}
+            />
+            {/* </div> */}
+            <div
+              className="rounded-full bg-white h-9 w-9 m-auto flex items-center justify-center cursor-pointer hover:bg-bright-gray"
+              onClick={togglePause}>
+              {isPaused ? (
                 <Play
-                  width={10}
-                  height={10}
+                  width={8}
+                  height={8}
                 />
-              </div>
+              ) : (
+                <Pause
+                  width={8}
+                  height={8}
+                />
+              )}
             </div>
           </div>
         </div>
 
         {/* right content */}
-        <div className="md:w-1/2">
+        <div className="md:basis-1/2 pr-10">
           <h3 className="text-eerie-black font-semibold text-xl lg:text-xl xl:text-2xl">
             About SeTeDuk
           </h3>
@@ -248,7 +340,7 @@ const Beranda = () => {
                 {/* ))} */}
               </ul>
               <div className="my-4 cursor-pointer">
-                <Shopee />
+                <Shopee color="text-independence" />
               </div>
             </div>
             {/* gambar */}

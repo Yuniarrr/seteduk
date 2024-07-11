@@ -1,13 +1,18 @@
-export default function Shopee() {
+interface Color {
+  color?: string;
+}
+
+export default function Shopee({ color }: Color) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       x="0px"
       y="0px"
-      className="w-5 h-5 hover:underline hover:text-minion-yellow cursor-pointer text-white"
+      className={`w-5 h-5 hover:underline hover:text-minion-yellow cursor-pointer ${
+        color ? color : 'text-white'
+      }`}
       viewBox="0,0,256,256">
       <g
-        // fill={`${color}` || '#ffffff'}
         fill="currentColor"
         fill-rule="nonzero"
         stroke="none"
