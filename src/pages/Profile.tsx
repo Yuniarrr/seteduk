@@ -1,11 +1,10 @@
 import BaseCarousel2 from '../components/BaseCarousel2';
-import Team from '../components/logo/Team';
+import Team from '../../public/images/team.png';
 import Dosen from '../../public/images/member/dosen.png';
 import Farsya from '../../public/images/member/farsya.png';
 import Keiza from '../../public/images/member/keiza.png';
 import Solagracia from '../../public/images/member/solagracia.png';
 import Syifaul from '../../public/images/member/syifaul.png';
-// import NasiTelang from '../../public/images/nasi-telang.png';
 import Img1 from '../../public/images/seteduk/img-1.jpg';
 import Img2 from '../../public/images/seteduk/img-2.jpg';
 import Img3 from '../../public/images/seteduk/img-3.jpg';
@@ -17,24 +16,25 @@ const Profile = () => {
   const images = [Img1, Img2, Img3, Img4, Img5];
 
   return (
-    <div className="mt-24">
-      <div className="flex flex-wrap justify-evenly items-center flex-col m-8 xl:mx-20 xl:my-20 md:flex-row gap-y-8">
-        <div className="flex flex-col w-full md:gap-y-5 xl:w-1/4 md:w-1/3 accordion-up">
-          <h2 className="font-bold text-2xl xl:text-5xl">
-            Profil SeTeDuk Team
-          </h2>
-          <p className="xl:text-lg">
+    <div className="mt-24 md:mt-0">
+      <div className="flex flex-wrap md:relative">
+        <div className="flex flex-wrap justify-start items-start flex-col mx-5 xl:mx-20 xl:my-20 md:flex-col gap-y-2 w-full">
+          <h2 className="font-bold text-2xl xl:text-5xl">Dibalik Layar</h2>
+          <h2 className="font-thin text-2xl xl:text-5xl">PKM-K SeTeDuk</h2>
+          <p className="xl:text-lg md:w-1/4 w-full">
             Kami adalah mahasiswa Institut Teknologi Sepuluh Nopember yang
             sedang mengikuti PKM-Kewirausahaan. Dukung terus tim kami ya!
           </p>
         </div>
-        <div className="w-full flex items-center justify-end xl:w-3/4 md:w-2/3">
-          <Team className="lg:self-end self-center w-auto" />
-        </div>
+        <img
+          className="md:absolute md:-z-10 md:mt-24"
+          src={Team}
+          alt=""
+        />
       </div>
 
       {/* team member */}
-      <div className="flex flex-wrap justify-around items-center flex-col mx-8 xl:mx-20 md:flex-row">
+      <div className="flex flex-wrap justify-around items-center flex-col mx-8 xl:mx-20 md:flex-row md:mt-80 mt-5 lg:mt-96">
         <BaseCarousel2
           autoSlide={true}
           slides={members}

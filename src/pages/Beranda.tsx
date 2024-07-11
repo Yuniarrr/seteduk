@@ -191,7 +191,7 @@ const Beranda = () => {
       </div>
 
       {/* about seteduk */}
-      <div className="flex flex-wrap justify-around items-center flex-col md:flex-row mt-10 mb-16">
+      <div className="flex flex-wrap justify-around items-center flex-col md:flex-row mt-10 mb-16 gap-y-5">
         {/* left content */}
         <div className="md:basis-1/2 justify-center flex items-center">
           <div className="flex flex-col gap-y-3 bg-american-blue rounded-xl p-3 md:px-5 md:pt-5 lg:py-7 items-center justify-center w-full lg:w-4/5 xl:w-2/3 min-h-72">
@@ -221,8 +221,8 @@ const Beranda = () => {
         </div>
 
         {/* right content */}
-        <div className="md:basis-1/2 pr-10">
-          <h3 className="text-eerie-black font-semibold text-xl lg:text-xl xl:text-2xl">
+        <div className="md:basis-1/2 md:pr-10 w-full px-10">
+          <h3 className="text-eerie-black font-semibold text-xl lg:text-xl xl:text-2xl text-center md:text-start">
             About SeTeDuk
           </h3>
           <p className="basic-text">

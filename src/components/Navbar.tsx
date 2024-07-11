@@ -83,7 +83,7 @@ const Navbar = () => {
                   Profil
                 </NavLink>
               </li>
-              {/* <li className="border-l-2" /> */}
+              <li className="border-l-2" />
               <li>
                 <a
                   href="https://www.instagram.com/seteduk"
