@@ -37,7 +37,8 @@ const Footer = () => {
         <img
           src={Buntel3}
           alt="md:-mt-[3.7rem]"
-          className="object-cover lg:w-[25%] lg:-mt-[2rem] xl:w-[20%] xl:-mt-[5.5rem] hidden md:block w-1/3"
+          style={{ width: '30%' }}
+          className="object-cover lg:w-[25%] lg:-mt-[2rem] xl:w-[20%] xl:-mt-[5.5rem] hidden md:block"
         />
         <div className="md:max-w-xl w-2/3">
           <div className="mx-10 flex flex-col items-end my-5 xl:my-7 gap-y-4">
