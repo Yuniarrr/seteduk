@@ -10,6 +10,8 @@ import Img2 from '../../public/images/seteduk/img-2.jpg';
 import Img3 from '../../public/images/seteduk/img-3.jpg';
 import Img4 from '../../public/images/seteduk/img-4.jpg';
 import Img5 from '../../public/images/seteduk/img-5.jpg';
+import BProfileR from '../../public/images/buntel-profile-right.png';
+import BProfileL from '../../public/images/buntel-profile-left.png';
 
 const Profile = () => {
   const members = [Dosen, Farsya, Keiza, Solagracia, Syifaul];
@@ -30,6 +32,18 @@ const Profile = () => {
           className="md:absolute md:-z-10 md:mt-24"
           src={Team}
           alt=""
+        />
+        <img
+          className="absolute md:mt-[17.5rem] mt-[11.5rem]"
+          src={BProfileL}
+          alt=""
+          style={{ maxWidth: '20%' }}
+        />
+        <img
+          className="absolute right-0 md:mt-[15rem] w-full mt-[12.5rem]"
+          src={BProfileR}
+          alt=""
+          style={{ maxWidth: '13%' }}
         />
       </div>
 

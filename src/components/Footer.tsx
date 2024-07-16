@@ -32,7 +32,7 @@ const Footer = () => {
 
   return (
     <>
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-row md:justify-between justify-end">
         {/* <div className="w-1"></div> */}
         <img
           src={Buntel3}
@@ -40,7 +40,7 @@ const Footer = () => {
           style={{ width: '30%' }}
           className="object-cover lg:w-[25%] lg:-mt-[2rem] xl:w-[20%] xl:-mt-[5.5rem] hidden md:block"
         />
-        <div className="md:max-w-xl w-2/3">
+        <div className="md:max-w-xl">
           <div className="mx-10 flex flex-col items-end my-5 xl:my-7 gap-y-4">
             <p className="bg-bright-gray text-independence px-3 rounded-lg">
               Follow Us
